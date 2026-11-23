@@ -211,3 +211,11 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0; }
     justify-content: center;
   }
 }
+a.need-card {
+  text-decoration: none;
+  font-family: inherit;
+}
+
+a.need-card:hover {
+  text-decoration: none;
+}
