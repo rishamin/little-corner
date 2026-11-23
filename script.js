@@ -45,3 +45,35 @@ document.querySelector("#cozy-button").addEventListener("click", () => {
   document.querySelector("#welcome-response").textContent = "That's it. Get comfy, sweetheart. There's no rush. ♡";
   document.querySelector("#cozy-button").textContent = "All cozy ♡";
 });
+const greetings = {
+  morning: {
+    title: "Good morning, sweetheart",
+    text: "Did you sleep okay, little one? Take a slow start. There's no hurry to be anywhere here."
+  },
+  day: {
+    title: "Hello, sweetheart",
+    text: "There you are, little one. Come in, get comfortable, and let the outside world wait for a moment."
+  },
+  evening: {
+    title: "Good evening, little one",
+    text: "The day is winding down. Come in, get comfy, and let everything go quiet for a bit."
+  },
+  night: {
+    title: "Still up, little one",
+    text: "It's late, sweetheart. Time to get cozy. Let's make everything soft and quiet for a moment."
+  }
+};
+
+const hour = new Date().getHours();
+let period = "night";
+if (hour >= 5 && hour < 12) period = "morning";
+else if (hour >= 12 && hour < 18) period = "day";
+else if (hour >= 18 && hour < 23) period = "evening";
+
+const greetingTitle = document.querySelector("#greeting-title");
+const greetingText = document.querySelector("#greeting-text");
+
+if (greetingTitle && greetingText) {
+  greetingTitle.textContent = greetings[period].title;
+  greetingText.textContent = greetings[period].text;
+}
