@@ -26,9 +26,9 @@ document.querySelector("#new-message").addEventListener("click", () => {
   careMessage.textContent = messages[nextIndex];
 });
 
-document.querySelectorAll(".need-card").forEach((button) => {
+document.querySelectorAll("button.need-card[data-need]").forEach((button) => {
   button.addEventListener("click", () => {
-    document.querySelectorAll(".need-card").forEach((card) => {
+    document.querySelectorAll("button.need-card[data-need]").forEach((card) => {
       card.classList.remove("selected");
       card.setAttribute("aria-pressed", "false");
     });
@@ -43,28 +43,3 @@ document.querySelector("#cozy-button").addEventListener("click", () => {
   document.querySelector("#welcome-response").textContent = "That's it. Get comfy, sweetheart. There's no rush. ♡";
   document.querySelector("#cozy-button").textContent = "All cozy ♡";
 });
-const kittenSounds = [
-  "meow! ♡",
-  "mrrr...",
-  "mew?",
-  "miaow!",
-  "prrr prrr ♡",
-  "mrrp!",
-  "meow meow!",
-  "purrrrr...",
-  "mew! ♡",
-  "mrrrow?"
-];
-
-const mascotButton = document.getElementById("mascot-button");
-const mascotMessage = document.getElementById("mascot-message");
-
-if (mascotButton && mascotMessage) {
-  mascotButton.addEventListener("click", () => {
-    const randomSound =
-      kittenSounds[Math.floor(Math.random() * kittenSounds.length)];
-
-    mascotMessage.textContent = randomSound;
-    mascotMessage.hidden = false;
-  });
-}
