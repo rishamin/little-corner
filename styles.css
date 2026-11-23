@@ -223,3 +223,13 @@ bottom: 65%;
 .site-nav a { color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: .88rem; }
 .site-nav a:hover { color: var(--pink-700); }
 a.need-card { display: block; text-decoration: none; }
+.response-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--pink-700);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid #d99ab5;
+}
+.response-link:hover { color: var(--pink-500); }
+.response-link[hidden] { display: none; }
