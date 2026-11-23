@@ -168,8 +168,8 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0; }
 
 .mascot-message {
   position: absolute;
-  right: calc(100% + 10px);
-  bottom: 40%;
+right: calc(100% - 12px);
+bottom: 65%;
   max-width: 150px;
   padding: 9px 13px;
   border-radius: 18px 18px 4px 18px;
