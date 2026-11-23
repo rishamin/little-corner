@@ -127,3 +127,28 @@ document.getElementById("quiet-button").addEventListener("click", () => {
   document.getElementById("quiet-button").textContent =
     message.hidden ? "Stay with me ♡" : "I'm staying ♡";
 });
+const kittenSounds = [
+  "meow! ♡",
+  "mrrr...",
+  "mew?",
+  "miaow!",
+  "prrr prrr ♡",
+  "mrrp!",
+  "meow meow!",
+  "purrrrr...",
+  "mew! ♡",
+  "mrrrow?"
+];
+
+const mascotButton = document.getElementById("mascot-button");
+const mascotMessage = document.getElementById("mascot-message");
+
+if (mascotButton && mascotMessage) {
+  mascotButton.addEventListener("click", () => {
+    const randomSound =
+      kittenSounds[Math.floor(Math.random() * kittenSounds.length)];
+
+    mascotMessage.textContent = randomSound;
+    mascotMessage.hidden = false;
+  });
+}
