@@ -219,3 +219,54 @@ a.need-card {
 a.need-card:hover {
   text-decoration: none;
 }
+/* Interactive kitten mascot */
+
+.mascot-button {
+  display: block;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.2s ease;
+}
+
+.mascot-button:hover {
+  transform: translateY(-4px) rotate(-3deg);
+}
+
+.mascot-button:active {
+  transform: scale(0.95);
+}
+
+.mascot-message {
+  position: absolute;
+  right: 100%;
+  bottom: 45%;
+  margin-right: 12px;
+  padding: 10px 16px;
+  border-radius: 18px 18px 4px 18px;
+  background: #fffafd;
+  color: #a66d88;
+  border: 1px solid #f0dce6;
+  box-shadow: 0 4px 14px rgba(180, 120, 150, 0.12);
+  font-size: 14px;
+  white-space: nowrap;
+  animation: kitten-pop 0.25s ease;
+  z-index: 20;
+}
+
+.mascot-message[hidden] {
+  display: none;
+}
+
+@keyframes kitten-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
