@@ -117,7 +117,6 @@ groundingNext.addEventListener("click", () => {
   groundingDone.disabled = false;
 
   groundingPraise.hidden = true;
-  groundingNext.disabled = true;
 });
 
 document.getElementById("quiet-button").addEventListener("click", () => {
