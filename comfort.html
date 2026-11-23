@@ -177,11 +177,26 @@
   </main>
 
   <script src="comfort.js"></script>
-  <div class="mascot">
-  <img src="assets/mascot.png" alt="Your little kitten companion">
-  <div class="mascot-message">
-    I'm right here, sweetheart ♡
+<div class="mascot">
+  <button
+    class="mascot-button"
+    id="mascot-button"
+    type="button"
+    aria-label="Talk to the kitten"
+  >
+    <img src="assets/mascot.png" alt="Your little kitten companion">
+  </button>
+
+  <div
+    class="mascot-message"
+    id="mascot-message"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+    meow! ♡
   </div>
+</div>
 </div>
 </body>
 </html>
