@@ -233,3 +233,9 @@ a.need-card { display: block; text-decoration: none; }
 }
 .response-link:hover { color: var(--pink-500); }
 .response-link[hidden] { display: none; }
+.mascot-button.purring { animation: purr-wobble 0.25s ease-in-out infinite; }
+
+@keyframes purr-wobble {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
