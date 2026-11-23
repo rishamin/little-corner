@@ -17,6 +17,7 @@ const needMessages = {
 const careMessage = document.querySelector("#care-message");
 const needResponse = document.querySelector("#need-response");
 const needResponseText = document.querySelector("#need-response-text");
+const needResponseLink = document.querySelector("#need-response-link");
 let lastMessageIndex = 0;
 
 document.querySelector("#new-message").addEventListener("click", () => {
@@ -35,6 +36,7 @@ document.querySelectorAll("button.need-card[data-need]").forEach((button) => {
     button.classList.add("selected");
     button.setAttribute("aria-pressed", "true");
     needResponseText.textContent = needMessages[button.dataset.need];
+    needResponseLink.hidden = button.dataset.need !== "comfort";
     needResponse.hidden = false;
   });
 });
