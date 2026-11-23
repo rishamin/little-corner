@@ -314,21 +314,31 @@
   .need-card {
     padding: 15px 11px;
   }
-.heart-button {
-  display: block;
-  margin: 0 auto 12px;
+  .section-heading h2 {
+    font-size: 17px;
+  }
+}
+/* Grounding buttons */
+
+.heart-button,
+#grounding-button {
+  display: inline-block;
+  margin: 8px 5px;
   padding: 12px 22px;
-  border: none;
+  border: 1px solid #f0dce6;
   border-radius: 30px;
   background: #f9edf3;
   color: #a36f89;
-  font: inherit;
+  font-family: inherit;
   font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
   transition: transform 0.2s, background 0.2s;
+  box-shadow: none;
 }
 
-.heart-button:hover {
+.heart-button:hover,
+#grounding-button:hover:not(:disabled) {
   background: #f5e1eb;
   transform: translateY(-2px);
 }
@@ -351,8 +361,4 @@
   opacity: 0.4;
   cursor: not-allowed;
   transform: none;
-}
-  .section-heading h2 {
-    font-size: 17px;
-  }
 }
