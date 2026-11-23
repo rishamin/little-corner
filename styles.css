@@ -116,6 +116,8 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0; }
   .site-footer { flex-direction: column; gap: 3px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+/* Interactive kitten mascot */
+
 .mascot {
   position: fixed;
   right: 20px;
@@ -125,104 +127,13 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0; }
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  width: 76px;
-  pointer-events: none;
+  width: 100px;
+  pointer-events: auto;
 }
-
-.mascot img {
-  width: 100%;
-  max-height: 85px;
-  object-fit: contain;
-  filter: drop-shadow(0 3px 5px rgba(190, 130, 160, 0.15));
-  animation: kitty-float 4s ease-in-out infinite;
-}
-
-.mascot-message {
-  max-width: 125px;
-  background: #fff7fb;
-  color: #a66d88;
-  border: 1px solid #f3d8e5;
-  border-radius: 14px;
-  padding: 6px 9px;
-  font-size: 10px;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .mascot {
-    width: 58px;
-    right: 10px;
-    bottom: 8px;
-  }
-
-  .mascot img {
-    max-height: 65px;
-  }
-}
-.mascot-message {
-  background: #fff7fb;
-  color: #a66d88;
-  border: 1px solid #f3d8e5;
-  border-radius: 18px;
-  padding: 9px 13px;
-  font-size: 12px;
-  text-align: center;
-  box-shadow: 0 3px 12px rgba(190, 130, 160, 0.12);
-}
-
-@keyframes kitty-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
-}
-
-@media (max-width: 600px) {
-  .mascot {
-    width: 100px;
-    right: 10px;
-    bottom: 10px;
-  }
-}
-.site-nav {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-}
-
-.site-nav a {
-  color: #a66d88;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.site-nav a:hover {
-  color: #d58eae;
-}
-
-@media (max-width: 600px) {
-  .site-header {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .site-nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-  }
-}
-a.need-card {
-  text-decoration: none;
-  font-family: inherit;
-}
-
-a.need-card:hover {
-  text-decoration: none;
-}
-/* Interactive kitten mascot */
 
 .mascot-button {
   display: block;
+  width: 100%;
   padding: 0;
   border: none;
   background: transparent;
@@ -239,18 +150,35 @@ a.need-card:hover {
   transform: scale(0.95);
 }
 
+.mascot img {
+  display: block;
+  width: 100%;
+  max-height: 85px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 5px rgba(190, 130, 160, 0.15));
+  animation: kitty-float 4s ease-in-out infinite;
+}
+
+.mascot-label {
+  color: #a66d88;
+  font-size: 11px;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .mascot-message {
   position: absolute;
-  right: 100%;
-  bottom: 45%;
-  margin-right: 12px;
-  padding: 10px 16px;
+  right: calc(100% + 10px);
+  bottom: 40%;
+  max-width: 150px;
+  padding: 9px 13px;
   border-radius: 18px 18px 4px 18px;
   background: #fffafd;
   color: #a66d88;
   border: 1px solid #f0dce6;
   box-shadow: 0 4px 14px rgba(180, 120, 150, 0.12);
-  font-size: 14px;
+  font-size: 13px;
+  text-align: center;
   white-space: nowrap;
   animation: kitten-pop 0.25s ease;
   z-index: 20;
@@ -260,6 +188,37 @@ a.need-card:hover {
   display: none;
 }
 
+@keyframes kitty-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes kitten-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .mascot {
+    width: 76px;
+    right: 10px;
+    bottom: 8px;
+  }
+
+  .mascot img {
+    max-height: 65px;
+  }
+
+  .mascot-label {
+    font-size: 9px;
+  }
+}
 @keyframes kitten-pop {
   from {
     opacity: 0;
