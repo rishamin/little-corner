@@ -105,7 +105,7 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0; }
 @media (max-width: 480px) {
   .page-shell { width: min(100% - 26px, 1050px); }
   .site-header { min-height: 70px; margin-bottom: 20px; }
-  .header-note { font-size: .7rem; }
+.header-note { display: none; }
   .welcome-copy { padding: 28px 23px 20px; }
   .welcome-art { min-height: 245px; }
   .message-section, .needs-section { margin-top: 42px; }
@@ -115,7 +115,7 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0; }
   .check-illustration { flex-basis: 54px; width: 54px; height: 54px; font-size: 1.6rem; }
   .site-footer { flex-direction: column; gap: 3px; }
 }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
 /* Interactive kitten mascot */
 
 .mascot {
@@ -219,13 +219,7 @@ bottom: 65%;
     font-size: 9px;
   }
 }
-@keyframes kitten-pop {
-  from {
-    opacity: 0;
-    transform: translateY(6px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
+.site-nav { display: flex; gap: 18px; }
+.site-nav a { color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: .88rem; }
+.site-nav a:hover { color: var(--pink-700); }
+a.need-card { display: block; text-decoration: none; }
