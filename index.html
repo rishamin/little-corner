@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff4f8">
+  <title>Little One's Haven ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Little One's Haven home">
+        <span class="brand-mark">♡</span>
+        <span>Little One's Haven</span>
+      </a>
+      <span class="header-note">a soft place to land</span>
+    </header>
+
+    <main>
+      <section class="welcome-card" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <p class="eyebrow">YOUR LITTLE CORNER OF THE WORLD</p>
+          <h1 id="welcome-title">Hello, sweetheart<span class="pink-dot">.</span></h1>
+          <p class="welcome-text">There you are, little one. Come in, get comfortable, and let the outside world wait for a moment.</p>
+          <p class="welcome-text">You don't have to be productive or have everything figured out here. I'm right here with you.</p>
+          <button class="primary-button" id="cozy-button">Come get cozy <span aria-hidden="true">♡</span></button>
+          <p class="tiny-note" id="welcome-response" aria-live="polite">There's room for you just as you are.</p>
+        </div>
+        <div class="welcome-art" aria-label="Illustration of a cozy pink room with a teddy bear" role="img">
+          <div class="window">
+            <span class="moon">☾</span>
+            <span class="star star-one">✦</span>
+            <span class="star star-two">✧</span>
+            <span class="cloud"></span>
+          </div>
+          <div class="shelf"></div>
+          <div class="plant"><span>✿</span><i></i></div>
+          <div class="bed">
+            <div class="pillow"></div>
+            <div class="blanket"></div>
+            <div class="teddy"><span class="ear left"></span><span class="ear right"></span><span class="face">·ᴥ·</span></div>
+          </div>
+          <div class="rug"></div>
+          <span class="floating-heart">♡</span>
+        </div>
+      </section>
+
+      <section class="message-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A LITTLE REMINDER</p>
+            <h2>Something you might need to hear</h2>
+          </div>
+          <span class="decorative-heart" aria-hidden="true">♡</span>
+        </div>
+        <article class="message-card">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p id="care-message" aria-live="polite">You don't have to earn gentleness, sweetheart. You deserve care on the easy days and the difficult ones, too.</p>
+          <div class="message-footer">
+            <span>with love, your caregiver</span>
+            <button class="text-button" id="new-message">A little more reassurance ↗</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="needs-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LET ME BE HERE FOR YOU</p>
+            <h2>What do you need right now?</h2>
+            <p class="section-subtitle">You can choose one, choose a few, or just have a look.</p>
+          </div>
+        </div>
+        <div class="needs-grid">
+          <button class="need-card" data-need="comfort">
+            <span class="need-icon">♡</span><span class="need-title">Some comfort</span><span class="need-desc">A little reassurance and warmth</span>
+          </button>
+          <button class="need-card" data-need="overwhelmed">
+            <span class="need-icon">☁</span><span class="need-title">Everything feels big</span><span class="need-desc">Let's make things feel smaller</span>
+          </button>
+          <button class="need-card" data-need="tired">
+            <span class="need-icon">☾</span><span class="need-title">I'm all tuckered out</span><span class="need-desc">Rest is allowed, little one</span>
+          </button>
+          <button class="need-card" data-need="play">
+            <span class="need-icon">✿</span><span class="need-title">Something fun!</span><span class="need-desc">A tiny bit of playtime</span>
+          </button>
+        </div>
+        <div class="response-card" id="need-response" hidden aria-live="polite">
+          <p class="response-label">A note from your caregiver</p>
+          <p id="need-response-text"></p>
+        </div>
+      </section>
+
+      <section class="gentle-check">
+        <div class="check-illustration" aria-hidden="true">🧸</div>
+        <div>
+          <p class="eyebrow">NO PRESSURE, JUST CARE</p>
+          <h2>A tiny check-in</h2>
+          <p>Have you had a sip of water? Are you comfy? Do you need the bathroom, a snack, or a softer place to sit?</p>
+          <p class="check-small">You don't need to do all of these. Just notice what might help.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Little One's Haven <span aria-hidden="true">♡</span></span>
+      <span>Take your time, sweetheart.</span>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
