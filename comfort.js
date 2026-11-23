@@ -53,16 +53,28 @@ const needs = {
   lonely: "I'm here with you, darling. You don't have to fill the silence or find the right words. We can just sit together for a little while."
 };
 
-function randomItem(array) {
-  return array[Math.floor(Math.random() * array.length)];
+function makePicker(arr) {
+  let bag = [];
+  let last = null;
+  return () => {
+    if (!bag.length) {
+      bag = [...arr].sort(() => Math.random() - 0.5);
+      if (bag.length > 1 && bag[bag.length - 1] === last) bag.unshift(bag.pop());
+    }
+    last = bag.pop();
+    return last;
+  };
 }
 
+const nextHug = makePicker(hugMessages);
+const nextNeedy = makePicker(needyMessages);
+const nextKind = makePicker(kindMessages);
 document.getElementById("hug-button").addEventListener("click", () => {
   hugCount++;
 
   const message = hugCount <= hugLimit
-    ? randomItem(hugMessages)
-    : randomItem(needyMessages);
+    ? nextHug()
+    : nextNeedy();
 
   document.getElementById("hug-message").textContent = message;
 
@@ -72,7 +84,7 @@ document.getElementById("hug-button").addEventListener("click", () => {
 
 document.getElementById("message-button").addEventListener("click", () => {
   document.getElementById("kind-message").textContent =
-    randomItem(kindMessages);
+    nextKind();
 });
 
 document.querySelectorAll(".need-card").forEach(card => {
@@ -126,29 +138,4 @@ document.getElementById("quiet-button").addEventListener("click", () => {
 
   document.getElementById("quiet-button").textContent =
     message.hidden ? "Stay with me ♡" : "I'm staying ♡";
-});
-const kittenSounds = [
-  "meow! ♡",
-  "mrrr...",
-  "mew?",
-  "miaow!",
-  "prrr prrr ♡",
-  "mrrp!",
-  "meow meow!",
-  "purrrrr...",
-  "mew! ♡",
-  "mrrrow?"
-];
-
-const mascotButton = document.getElementById("mascot-button");
-const mascotMessage = document.getElementById("mascot-message");
-
-if (mascotButton && mascotMessage) {
-  mascotButton.addEventListener("click", () => {
-    const randomSound =
-      kittenSounds[Math.floor(Math.random() * kittenSounds.length)];
-
-    mascotMessage.textContent = randomSound;
-    mascotMessage.hidden = false;
-  });
-}
+})
