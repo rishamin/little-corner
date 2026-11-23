@@ -95,11 +95,29 @@ document.querySelectorAll(".need-card").forEach(card => {
 
 let groundingIndex = 0;
 
-document.getElementById("grounding-button").addEventListener("click", () => {
+const groundingDone = document.getElementById("grounding-done");
+const groundingNext = document.getElementById("grounding-button");
+const groundingPraise = document.getElementById("grounding-praise");
+
+groundingDone.addEventListener("click", () => {
+  groundingDone.textContent = "♥ Done!";
+  groundingDone.disabled = true;
+
+  groundingPraise.hidden = false;
+  groundingNext.disabled = false;
+});
+
+groundingNext.addEventListener("click", () => {
   groundingIndex = (groundingIndex + 1) % groundingSteps.length;
 
   document.getElementById("grounding-prompt").textContent =
     groundingSteps[groundingIndex];
+
+  groundingDone.textContent = "♡ I did it!";
+  groundingDone.disabled = false;
+
+  groundingPraise.hidden = true;
+  groundingNext.disabled = true;
 });
 
 document.getElementById("quiet-button").addEventListener("click", () => {
