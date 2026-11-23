@@ -1,11 +1,26 @@
-
 const hugMessages = [
   "Come here, sweetheart. I'm wrapping you in the biggest, warmest hug. ♡",
   "There we go, little one. You can rest your head and relax.",
   "A soft squeeze, a gentle pat, and all the time you need.",
   "You're safe to slow down. I've got you, darling.",
-  "Let's stay cuddled up for just a little while. No rush."
+  "Let's stay cuddled up for just a little while. No rush.",
+  "Come closer, baby. You're getting all the cuddles today.",
+  "A little forehead kiss and a very big hug for you.",
+  "I've got you, sweetheart. You can let go of everything for a moment.",
+  "There, there. You're doing just fine.",
+  "Let's wrap you up in a little bit of warmth."
 ];
+
+const needyMessages = [
+  "Oh? Someone seems to be extra needy today. Come here, little one. ♡",
+  "Another one? My goodness, sweetheart, you're quite the cuddlebug today.",
+  "I see someone needs a little extra love. That's perfectly alright.",
+  "Well, aren't you asking for lots of cuddles today? Come here, darling.",
+  "You can have as many hugs as you need, little one. No limits."
+];
+
+let hugCount = 0;
+const hugLimit = 12;
 
 const kindMessages = [
   "You don't have to earn love by being useful.",
