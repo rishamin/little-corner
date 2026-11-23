@@ -58,8 +58,16 @@ function randomItem(array) {
 }
 
 document.getElementById("hug-button").addEventListener("click", () => {
-  document.getElementById("hug-message").textContent =
-    randomItem(hugMessages);
+  hugCount++;
+
+  const message = hugCount <= hugLimit
+    ? randomItem(hugMessages)
+    : randomItem(needyMessages);
+
+  document.getElementById("hug-message").textContent = message;
+
+  const hugImage = document.getElementById("hug-image");
+  hugImage.hidden = false;
 });
 
 document.getElementById("message-button").addEventListener("click", () => {
