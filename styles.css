@@ -182,3 +182,32 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0; }
     bottom: 10px;
   }
 }
+.site-nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.site-nav a {
+  color: #a66d88;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  color: #d58eae;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
