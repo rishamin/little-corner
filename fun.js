@@ -210,7 +210,75 @@ if (bubblePlayground) {
   const calmMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
+  // BUBBLE SOUND
 
+  const soundToggle = document.getElementById("bubble-sound-toggle");
+  const SOUND_KEY = "littleOnesHaven_bubbleSound";
+
+  let bubbleSoundOn = true;
+  let bubbleAudio = null;
+
+  // Вспоминаем, как было в прошлый раз
+  try {
+    if (localStorage.getItem(SOUND_KEY) === "off") bubbleSoundOn = false;
+  } catch (error) {}
+
+  function updateSoundToggle() {
+    if (!soundToggle) return;
+
+    soundToggle.textContent = bubbleSoundOn
+      ? "🔊 Pop sound: on"
+      : "🔇 Pop sound: off";
+
+    soundToggle.classList.toggle("is-off", !bubbleSoundOn);
+  }
+
+  // Тихий нежный «поп», который браузер делает сам
+  function playBubblePop() {
+    if (!bubbleSoundOn) return;
+
+    try {
+      bubbleAudio =
+        bubbleAudio || new (window.AudioContext || window.webkitAudioContext)();
+
+      if (bubbleAudio.state === "suspended") bubbleAudio.resume();
+
+      const now = bubbleAudio.currentTime;
+      const oscillator = bubbleAudio.createOscillator();
+      const volume = bubbleAudio.createGain();
+
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(450 + Math.random() * 350, now);
+      oscillator.frequency.exponentialRampToValueAtTime(120, now + 0.12);
+
+      volume.gain.setValueAtTime(0.0001, now);
+      volume.gain.exponentialRampToValueAtTime(0.25, now + 0.01);
+      volume.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+
+      oscillator.connect(volume);
+      volume.connect(bubbleAudio.destination);
+
+      oscillator.start(now);
+      oscillator.stop(now + 0.16);
+    } catch (error) {
+      // если звук не получился, пузырьки всё равно работают
+    }
+  }
+
+  if (soundToggle) {
+    soundToggle.addEventListener("click", () => {
+      bubbleSoundOn = !bubbleSoundOn;
+
+      try {
+        localStorage.setItem(SOUND_KEY, bubbleSoundOn ? "on" : "off");
+      } catch (error) {}
+
+      updateSoundToggle();
+      playBubblePop(); // маленький «поп» в знак того, что звук включён
+    });
+
+    updateSoundToggle();
+  }
   const bubbleColors = [
     {
       tint: "rgba(255, 160, 205, 0.75)",
@@ -333,6 +401,7 @@ if (bubblePlayground) {
       bubble.style.top = `${centerY - size / 2}px`;
 
       bubble.classList.add("popping");
+      playBubblePop();
 
       // Убираем по таймеру, а не по animationend:
       // так работает, даже если анимации выключены
