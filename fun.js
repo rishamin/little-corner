@@ -195,13 +195,35 @@ if (meetButton && adoptButton && plushieDisplay && plushieShelf) {
 const bubblePlayground = document.getElementById("bubble-playground");
 
 if (bubblePlayground) {
-  const bubbleColors = [
-    "rgba(255, 190, 220, 0.65)",
-    "rgba(205, 190, 255, 0.65)",
-    "rgba(180, 220, 255, 0.65)",
-    "rgba(255, 220, 235, 0.7)",
-    "rgba(210, 235, 255, 0.7)"
-  ];
+
+const bubbleColors = [
+  {
+    tint: "rgba(255, 160, 205, 0.75)",
+    border: "rgba(238, 125, 180, 0.85)",
+    glow: "rgba(255, 150, 205, 0.3)"
+  },
+  {
+    tint: "rgba(190, 165, 255, 0.75)",
+    border: "rgba(160, 130, 235, 0.85)",
+    glow: "rgba(190, 165, 255, 0.3)"
+  },
+  {
+    tint: "rgba(150, 205, 255, 0.75)",
+    border: "rgba(115, 175, 240, 0.85)",
+    glow: "rgba(150, 205, 255, 0.3)"
+  },
+  {
+    tint: "rgba(255, 185, 215, 0.8)",
+    border: "rgba(240, 145, 190, 0.9)",
+    glow: "rgba(255, 185, 215, 0.3)"
+  },
+  {
+    tint: "rgba(165, 225, 235, 0.75)",
+    border: "rgba(110, 190, 205, 0.85)",
+    glow: "rgba(165, 225, 235, 0.3)"
+  }
+];
+
 
   function createBubble() {
     const bubble = document.createElement("button");
@@ -210,20 +232,33 @@ if (bubblePlayground) {
     bubble.className = "floating-bubble";
     bubble.setAttribute("aria-label", "Pop bubble");
 
-    const size = Math.floor(Math.random() * 42) + 24;
-    const duration = Math.random() * 4 + 6;
-    const left = Math.random() * 92 + 4;
-    const drift = Math.floor(Math.random() * 90) - 45;
-    const color = bubbleColors[
-      Math.floor(Math.random() * bubbleColors.length)
-    ];
 
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
-    bubble.style.left = `${left}%`;
-    bubble.style.setProperty("--bubble-duration", `${duration}s`);
-    bubble.style.setProperty("--bubble-drift", `${drift}px`);
-    bubble.style.setProperty("--bubble-tint", color);
+const size = Math.floor(Math.random() * 42) + 24;
+const duration = Math.random() * 4 + 7;
+
+const left = Math.random() * 82 + 5;
+const top = Math.random() * 72 + 8;
+
+const dx = Math.floor(Math.random() * 180) - 90;
+const dy = Math.floor(Math.random() * 180) - 90;
+
+const color = bubbleColors[
+  Math.floor(Math.random() * bubbleColors.length)
+];
+
+bubble.style.width = `${size}px`;
+bubble.style.height = `${size}px`;
+bubble.style.left = `${left}%`;
+bubble.style.top = `${top}%`;
+
+bubble.style.setProperty("--bubble-duration", `${duration}s`);
+bubble.style.setProperty("--bubble-dx", `${dx}px`);
+bubble.style.setProperty("--bubble-dy", `${dy}px`);
+
+bubble.style.setProperty("--bubble-tint", color.tint);
+bubble.style.setProperty("--bubble-border", color.border);
+bubble.style.setProperty("--bubble-glow", color.glow);
+
 
     bubble.addEventListener("click", () => {
       if (bubble.classList.contains("popping")) return;
