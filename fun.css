@@ -125,6 +125,17 @@
   line-height: 1.5;
 }
 
+/* Right-aligned section headings */
+
+.fun-section .section-heading {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.fun-section .section-heading > div {
+  flex: 1;
+}
+
 
 /* ================================
    PLUSHIE ADOPTION
@@ -322,5 +333,65 @@
 
   .bubble-playground {
     min-height: 280px;
+  }
+}
+
+/* Matching pink buttons in Plushie Adoption */
+
+.fun-page .adoption-card .pink-button,
+.fun-page .adoption-card .soft-button {
+  display: inline-block;
+  margin: 6px;
+  padding: 12px 24px;
+  border: 1px solid #edc5d9;
+  border-radius: 25px;
+  background: #f8dce9;
+  color: #a66d88;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.fun-page .adoption-card .pink-button:hover,
+.fun-page .adoption-card .soft-button:hover {
+  background: #f3c9dc;
+  transform: translateY(-2px);
+}
+
+.fun-page .adoption-card button:disabled {
+  opacity: 0.65;
+  cursor: default;
+  transform: none;
+}
+
+/* Plushie speech bubble */
+
+.plushie-speech-bubble {
+  position: relative;
+  max-width: 300px;
+  margin: 8px auto 18px;
+  padding: 11px 17px;
+  border: 1px solid #f0dce6;
+  border-radius: 18px 18px 18px 4px;
+  background: #fffafd;
+  color: #a66d88;
+  box-shadow: 0 4px 14px rgba(180, 120, 150, 0.12);
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  animation: plushie-pop 0.25s ease;
+}
+
+@keyframes plushie-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
