@@ -511,3 +511,16 @@
 .sound-toggle.is-off {
   opacity: 0.7;
 }
+.fun-page .bubble-playground {
+  position: relative;
+  overflow: hidden;
+  height: 340px;
+  min-height: 340px;
+}
+
+@media (max-width: 600px) {
+  .fun-page .bubble-playground {
+    height: 300px;
+    min-height: 300px;
+  }
+}
