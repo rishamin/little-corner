@@ -18,6 +18,11 @@ const careMessage = document.querySelector("#care-message");
 const needResponse = document.querySelector("#need-response");
 const needResponseText = document.querySelector("#need-response-text");
 const needResponseLink = document.querySelector("#need-response-link");
+
+const needLinks = {
+  comfort: { href: "comfort.html", text: "Tap here to get some comfort ♡" },
+  play: { href: "fun.html", text: "Tap here to play in the playroom ♡" }
+};
 let lastMessageIndex = 0;
 
 document.querySelector("#new-message").addEventListener("click", () => {
@@ -36,7 +41,15 @@ document.querySelectorAll("button.need-card[data-need]").forEach((button) => {
     button.classList.add("selected");
     button.setAttribute("aria-pressed", "true");
     needResponseText.textContent = needMessages[button.dataset.need];
-    needResponseLink.hidden = button.dataset.need !== "comfort";
+    const link = needLinks[button.dataset.need];
+
+    if (link) {
+      needResponseLink.href = link.href;
+      needResponseLink.textContent = link.text;
+      needResponseLink.hidden = false;
+    } else {
+      needResponseLink.hidden = true;
+    }
     needResponse.hidden = false;
   });
 });
