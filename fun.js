@@ -75,32 +75,38 @@ function meetPlushie() {
   );
 
   plushieDisplay.innerHTML = `
-    <img
-      src="${currentPlushie.image}"
-      alt="${currentPlushie.name} plushie"
-    >
 
-    <h3>${currentPlushie.name}</h3>
+plushieDisplay.innerHTML = `
+  <img
+    src="${currentPlushie.image}"
+    alt="${currentPlushie.name} plushie"
+  >
 
-    <p><strong>${currentPlushie.species}</strong></p>
+  <h3>${currentPlushie.name}</h3>
 
-    <div class="plushie-details">
-      <p>${currentPlushie.personality}</p>
+  <p><strong>${currentPlushie.species}</strong></p>
 
-      <p>${currentPlushie.description}</p>
+  <div class="plushie-speech-bubble">
+    ${currentPlushie.quote}
+  </div>
 
-      <p><strong>Birthday:</strong> ${currentPlushie.birthday}</p>
+  <div class="plushie-details">
+    <p>${currentPlushie.personality}</p>
 
-      <p><strong>Favorite color:</strong> ${currentPlushie.favoriteColor}</p>
+    <p>${currentPlushie.description}</p>
 
-      <p><strong>Favorite thing:</strong> ${currentPlushie.favoriteThing}</p>
+    <p><strong>Birthday:</strong> ${currentPlushie.birthday}</p>
 
-      <p><strong>Loves:</strong> ${currentPlushie.loves}</p>
+    <p><strong>Favorite color:</strong> ${currentPlushie.favoriteColor}</p>
 
-      <p><strong>Doesn't like:</strong> ${currentPlushie.dislikes}</p>
+    <p><strong>Favorite thing:</strong> ${currentPlushie.favoriteThing}</p>
 
-      <p><em>${currentPlushie.quote}</em></p>
-    </div>
+    <p><strong>Loves:</strong> ${currentPlushie.loves}</p>
+
+    <p><strong>Doesn't like:</strong> ${currentPlushie.dislikes}</p>
+  </div>
+`;
+
   `;
 
   adoptButton.hidden = false;
