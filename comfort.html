@@ -123,6 +123,25 @@
           <p class="breathe-text" id="breathe-text" aria-live="polite">breathe with me ♡</p>
           <button class="pink-button" id="breathe-toggle" type="button">Start breathing together</button>
         </div>
+                <div class="rest-tools" id="rest-tools" hidden>
+
+          <div class="permission-slip">
+            <p class="slip-title">PERMISSION SLIP</p>
+            <p class="slip-text">This slip gives you permission to rest.</p>
+            <p class="slip-sign" id="slip-sign">Signed: ______________</p>
+            <span class="slip-seal" id="slip-seal" aria-hidden="true">♡</span>
+          </div>
+
+          <button class="pink-button" id="slip-button" type="button">Sign it ♡</button>
+
+          <div class="rest-buttons">
+            <button class="soft-button" id="tuck-button" type="button">Hold to be tucked in 🌙</button>
+            <button class="soft-button" id="dim-button" type="button">🕯 Dim the lights</button>
+          </div>
+
+          <p class="rest-note" id="rest-note" aria-live="polite"></p>
+
+        </div>
       </div>
     </section>
 
@@ -186,7 +205,9 @@
 
   </main>
 
-
+<div class="tuck-overlay" aria-hidden="true">
+  <div class="tuck-blanket"></div>
+</div>
 <div class="mascot">
   <button
     class="mascot-button"
@@ -214,6 +235,7 @@
 </div>
 <script src="comfort.js"></script>
 <script src="breathe.js"></script>
+<script src="rest.js"></script>
 <script src="mascot.js"></script>
 </body>
 </html>
