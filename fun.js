@@ -66,6 +66,7 @@ let currentPlushie = null;
 
 // MEET A PLUSHIE
 
+
 function meetPlushie() {
   const randomIndex = Math.floor(Math.random() * plushies.length);
 
