@@ -189,3 +189,70 @@ if (meetButton && adoptButton && plushieDisplay && plushieShelf) {
   renderPlushieShelf();
 
 }
+
+// BUBBLE POP
+
+const bubblePlayground = document.getElementById("bubble-playground");
+
+if (bubblePlayground) {
+  const bubbleColors = [
+    "rgba(255, 190, 220, 0.65)",
+    "rgba(205, 190, 255, 0.65)",
+    "rgba(180, 220, 255, 0.65)",
+    "rgba(255, 220, 235, 0.7)",
+    "rgba(210, 235, 255, 0.7)"
+  ];
+
+  function createBubble() {
+    const bubble = document.createElement("button");
+
+    bubble.type = "button";
+    bubble.className = "floating-bubble";
+    bubble.setAttribute("aria-label", "Pop bubble");
+
+    const size = Math.floor(Math.random() * 42) + 24;
+    const duration = Math.random() * 4 + 6;
+    const left = Math.random() * 92 + 4;
+    const drift = Math.floor(Math.random() * 90) - 45;
+    const color = bubbleColors[
+      Math.floor(Math.random() * bubbleColors.length)
+    ];
+
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${left}%`;
+    bubble.style.setProperty("--bubble-duration", `${duration}s`);
+    bubble.style.setProperty("--bubble-drift", `${drift}px`);
+    bubble.style.setProperty("--bubble-tint", color);
+
+    bubble.addEventListener("click", () => {
+      if (bubble.classList.contains("popping")) return;
+
+      bubble.classList.add("popping");
+
+      setTimeout(() => {
+        bubble.remove();
+      }, 180);
+    });
+
+    bubble.addEventListener("animationend", (event) => {
+      if (event.animationName === "bubble-float") {
+        bubble.remove();
+      }
+    });
+
+    bubblePlayground.appendChild(bubble);
+  }
+
+  // A little bunch of bubbles at the beginning
+  for (let i = 0; i < 9; i++) {
+    setTimeout(createBubble, i * 250);
+  }
+
+  // New bubbles keep appearing
+  setInterval(() => {
+    if (bubblePlayground.querySelectorAll(".floating-bubble").length < 18) {
+      createBubble();
+    }
+  }, 700);
+}
