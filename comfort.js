@@ -102,6 +102,15 @@ document.querySelectorAll(".need-card").forEach(card => {
       needs[need];
 
     response.hidden = false;
+        const breatheBox = document.getElementById("breathe");
+
+    if (breatheBox) {
+      breatheBox.hidden = need !== "overwhelmed";
+
+      if (need !== "overwhelmed" && typeof stopBreathing === "function") {
+        stopBreathing();
+      }
+    }
   });
 });
 
