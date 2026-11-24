@@ -192,128 +192,139 @@ if (meetButton && adoptButton && plushieDisplay && plushieShelf) {
 
 // BUBBLE POP
 
+
+// BUBBLE POP
+
 const bubblePlayground = document.getElementById("bubble-playground");
 
 if (bubblePlayground) {
-
-const bubbleColors = [
-  {
-    tint: "rgba(255, 160, 205, 0.75)",
-    border: "rgba(238, 125, 180, 0.85)",
-    glow: "rgba(255, 150, 205, 0.3)"
-  },
-  {
-    tint: "rgba(190, 165, 255, 0.75)",
-    border: "rgba(160, 130, 235, 0.85)",
-    glow: "rgba(190, 165, 255, 0.3)"
-  },
-  {
-    tint: "rgba(150, 205, 255, 0.75)",
-    border: "rgba(115, 175, 240, 0.85)",
-    glow: "rgba(150, 205, 255, 0.3)"
-  },
-  {
-    tint: "rgba(255, 185, 215, 0.8)",
-    border: "rgba(240, 145, 190, 0.9)",
-    glow: "rgba(255, 185, 215, 0.3)"
-  },
-  {
-    tint: "rgba(165, 225, 235, 0.75)",
-    border: "rgba(110, 190, 205, 0.85)",
-    glow: "rgba(165, 225, 235, 0.3)"
-  }
-];
-
-
-
-function createBubble() {
-  const bubble = document.createElement("button");
-
-  bubble.type = "button";
-  bubble.className = "floating-bubble";
-  bubble.setAttribute("aria-label", "Pop bubble");
-
-  const width = bubblePlayground.clientWidth;
-  const height = bubblePlayground.clientHeight;
-
-  const size = Math.floor(Math.random() * 42) + 24;
-  const duration = Math.random() * 5 + 9;
-
-  const color = bubbleColors[
-    Math.floor(Math.random() * bubbleColors.length)
+  const bubbleColors = [
+    {
+      tint: "rgba(255, 160, 205, 0.75)",
+      border: "rgba(238, 125, 180, 0.85)",
+      glow: "rgba(255, 150, 205, 0.3)"
+    },
+    {
+      tint: "rgba(190, 165, 255, 0.75)",
+      border: "rgba(160, 130, 235, 0.85)",
+      glow: "rgba(190, 165, 255, 0.3)"
+    },
+    {
+      tint: "rgba(150, 205, 255, 0.75)",
+      border: "rgba(115, 175, 240, 0.85)",
+      glow: "rgba(150, 205, 255, 0.3)"
+    },
+    {
+      tint: "rgba(255, 185, 215, 0.8)",
+      border: "rgba(240, 145, 190, 0.9)",
+      glow: "rgba(255, 185, 215, 0.3)"
+    },
+    {
+      tint: "rgba(165, 225, 235, 0.75)",
+      border: "rgba(110, 190, 205, 0.85)",
+      glow: "rgba(165, 225, 235, 0.3)"
+    }
   ];
 
-  const side = Math.floor(Math.random() * 4);
+  function createBubble() {
+    const area = bubblePlayground.getBoundingClientRect();
 
-  let left;
-  let top;
-  let dx;
-  let dy;
+    const bubble = document.createElement("button");
+    bubble.type = "button";
+    bubble.className = "floating-bubble";
+    bubble.setAttribute("aria-label", "Pop bubble");
 
-  // LEFT
-  if (side === 0) {
-    left = -size;
-    top = Math.random() * (height - size);
-    dx = width + size * 2;
-    dy = (Math.random() - 0.5) * height * 0.5;
-  }
+    const size = Math.floor(Math.random() * 42) + 24;
+    const duration = Math.random() * 5 + 8;
 
-  // RIGHT
-  else if (side === 1) {
-    left = width;
-    top = Math.random() * (height - size);
-    dx = -(width + size * 2);
-    dy = (Math.random() - 0.5) * height * 0.5;
-  }
+    const width = area.width;
+    const height = area.height;
 
-  // TOP
-  else if (side === 2) {
-    left = Math.random() * (width - size);
-    top = -size;
-    dx = (Math.random() - 0.5) * width * 0.5;
-    dy = height + size * 2;
-  }
+    const edge = Math.floor(Math.random() * 4);
 
-  // BOTTOM
-  else {
-    left = Math.random() * (width - size);
-    top = height;
-    dx = (Math.random() - 0.5) * width * 0.5;
-    dy = -(height + size * 2);
-  }
+    let startX, startY, endX, endY;
 
-  bubble.style.width = `${size}px`;
-  bubble.style.height = `${size}px`;
-  bubble.style.left = `${left}px`;
-  bubble.style.top = `${top}px`;
-
-  bubble.style.setProperty("--bubble-duration", `${duration}s`);
-  bubble.style.setProperty("--bubble-dx", `${dx}px`);
-  bubble.style.setProperty("--bubble-dy", `${dy}px`);
-
-  bubble.style.setProperty("--bubble-tint", color.tint);
-  bubble.style.setProperty("--bubble-border", color.border);
-  bubble.style.setProperty("--bubble-glow", color.glow);
-
-  bubble.addEventListener("click", () => {
-    if (bubble.classList.contains("popping")) return;
-
-    bubble.classList.add("popping");
-
-    setTimeout(() => {
-      bubble.remove();
-    }, 180);
-  });
-
-  bubble.addEventListener("animationend", (event) => {
-    if (event.animationName === "bubble-float") {
-      bubble.remove();
+    // LEFT: enters from the left and exits on the right
+    if (edge === 0) {
+      startX = 0;
+      startY = Math.random() * (height - size);
+      endX = width + size;
+      endY = Math.random() * (height - size);
     }
-  });
 
-  bubblePlayground.appendChild(bubble);
+    // RIGHT: enters from the right and exits on the left
+    else if (edge === 1) {
+      startX = width - size;
+      startY = Math.random() * (height - size);
+      endX = -size;
+      endY = Math.random() * (height - size);
+    }
+
+    // TOP: enters from above and exits below
+    else if (edge === 2) {
+      startX = Math.random() * (width - size);
+      startY = 0;
+      endX = Math.random() * (width - size);
+      endY = height + size;
+    }
+
+    // BOTTOM: enters from below and exits above
+    else {
+      startX = Math.random() * (width - size);
+      startY = height - size;
+      endX = Math.random() * (width - size);
+      endY = -size;
+    }
+
+    const color = bubbleColors[
+      Math.floor(Math.random() * bubbleColors.length)
+    ];
+
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${startX}px`;
+    bubble.style.top = `${startY}px`;
+
+    bubble.style.setProperty("--bubble-duration", `${duration}s`);
+    bubble.style.setProperty("--bubble-dx", `${endX - startX}px`);
+    bubble.style.setProperty("--bubble-dy", `${endY - startY}px`);
+
+    bubble.style.setProperty("--bubble-tint", color.tint);
+    bubble.style.setProperty("--bubble-border", color.border);
+    bubble.style.setProperty("--bubble-glow", color.glow);
+
+    bubble.addEventListener("click", () => {
+      if (bubble.classList.contains("popping")) return;
+
+      bubble.classList.add("popping");
+    });
+
+    bubble.addEventListener("animationend", (event) => {
+      if (
+        event.animationName === "bubble-travel" ||
+        event.animationName === "bubble-pop"
+      ) {
+        bubble.remove();
+      }
+    });
+
+    bubblePlayground.appendChild(bubble);
+  }
+
+  // Initial bubbles
+  for (let i = 0; i < 9; i++) {
+    setTimeout(createBubble, i * 300);
+  }
+
+  // Continuous bubble generation
+  setInterval(() => {
+    if (
+      bubblePlayground.querySelectorAll(".floating-bubble").length < 18
+    ) {
+      createBubble();
+    }
+  }, 700);
 }
-
 
   // A little bunch of bubbles at the beginning
   for (let i = 0; i < 9; i++) {
