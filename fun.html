@@ -113,8 +113,8 @@
         <div>
           <h2>Bubble Pop</h2>
           <p>Pop as many bubbles as you like, little one.</p>
+          <button class="sound-toggle" id="bubble-sound-toggle" type="button">🔊 Pop sound: on</button>
         </div>
-      </div>
 
       <div class="bubble-playground" id="bubble-playground">
 
@@ -137,7 +137,32 @@
     </footer>
 
   </main>
+  <div class="mascot">
+    <button
+      class="mascot-button"
+      id="mascot-button"
+      type="button"
+      aria-label="Talk to the kitten"
+    >
+      <img
+        src="assets/mascot.png"
+        alt="Your little kitten companion"
+      >
+    </button>
 
+    <div class="mascot-label">
+      I'm right here, sweetheart ♡
+    </div>
+
+    <div
+      class="mascot-message"
+      id="mascot-message"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+  </div>
+  <script src="mascot.js"></script>
   <script src="fun.js"></script>
 
 </body>
