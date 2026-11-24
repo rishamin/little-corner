@@ -272,6 +272,9 @@
 /* FLOATING BUBBLES */
 
 
+
+/* FLOATING BUBBLES */
+
 .floating-bubble {
   position: absolute;
   display: block;
@@ -290,8 +293,8 @@
     0 0 8px var(--bubble-glow),
     0 3px 12px rgba(170, 130, 190, 0.16);
   cursor: pointer;
-animation: bubble-float var(--bubble-duration) linear forwards;
   z-index: 2;
+  animation: bubble-travel var(--bubble-duration) linear forwards;
 }
 
 .floating-bubble::after {
@@ -311,84 +314,37 @@ animation: bubble-float var(--bubble-duration) linear forwards;
 }
 
 .floating-bubble.popping {
-  animation: bubble-pop 0.18s ease-out forwards;
+  animation: bubble-pop 0.2s ease-out forwards;
   pointer-events: none;
 }
 
-
-@keyframes bubble-float {
+@keyframes bubble-travel {
   0% {
-    transform: translate(0, 0) scale(0.8);
+    transform: translate(0, 0) scale(0.9);
     opacity: 0;
   }
 
   8% {
-    opacity: 0.95;
-  }
-
-  25% {
-    transform: translate(
-      calc(var(--bubble-dx) * 0.25),
-      calc(var(--bubble-dy) * 0.25)
-    ) rotate(8deg);
-    opacity: 0.95;
+    opacity: 1;
   }
 
   50% {
     transform: translate(
       calc(var(--bubble-dx) * 0.5),
       calc(var(--bubble-dy) * 0.5)
-    ) rotate(-8deg);
-    opacity: 0.95;
+    ) scale(1.05);
+    opacity: 1;
   }
 
-  75% {
-    transform: translate(
-      calc(var(--bubble-dx) * 0.75),
-      calc(var(--bubble-dy) * 0.75)
-    ) rotate(6deg);
-    opacity: 0.95;
+  92% {
+    opacity: 1;
   }
 
   100% {
     transform: translate(
       var(--bubble-dx),
       var(--bubble-dy)
-    ) rotate(-5deg);
-    opacity: 0.95;
-  }
-}
-
-
-@keyframes bubble-pop {
-  to {
-    transform: scale(1.7);
-    opacity: 0;
-  }
-}
-
-.floating-bubble.popping {
-  animation: bubble-pop 0.18s ease-out forwards;
-  pointer-events: none;
-}
-
-@keyframes bubble-float {
-  0% {
-    transform: translate(0, 0) scale(0.75);
-    opacity: 0;
-  }
-
-  12% {
-    opacity: 0.85;
-    transform: translate(0, -10px) scale(1);
-  }
-
-  50% {
-    transform: translate(var(--bubble-drift), -190px) scale(1.05);
-  }
-
-  100% {
-    transform: translate(calc(var(--bubble-drift) * -0.5), -430px) scale(0.9);
+    ) scale(0.95);
     opacity: 0;
   }
 }
@@ -399,7 +355,6 @@ animation: bubble-float var(--bubble-duration) linear forwards;
     opacity: 0;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .floating-bubble {
     animation-duration: 8s;
