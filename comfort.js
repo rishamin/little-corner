@@ -111,6 +111,15 @@ document.querySelectorAll(".need-card").forEach(card => {
         stopBreathing();
       }
     }
+        const restTools = document.getElementById("rest-tools");
+
+    if (restTools) {
+      restTools.hidden = need !== "rest";
+
+      if (need !== "rest" && typeof stopResting === "function") {
+        stopResting();
+      }
+    }
   });
 });
 
