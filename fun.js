@@ -44,14 +44,26 @@ const plushies = [
 
 const STORAGE_KEY = "littleOnesHaven_plushies";
 
+let memoryPlushies = [];
+
 function getAdoptedPlushies() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    memoryPlushies = Array.isArray(saved) ? saved : [];
+  } catch (error) {
+    // браузер не даёт читать память: берём то, что запомнили на этой странице
+  }
+  return memoryPlushies;
 }
 
 function saveAdoptedPlushies(plushies) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(plushies));
+  memoryPlushies = plushies;
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(plushies));
+  } catch (error) {
+    // браузер не разрешает сохранять: игрушки останутся, пока страница открыта
+  }
 }
-
 
 // ADOPTION ELEMENTS
 
@@ -189,15 +201,16 @@ if (meetButton && adoptButton && plushieDisplay && plushieShelf) {
   renderPlushieShelf();
 
 }
-
-// BUBBLE POP
-
-
 // BUBBLE POP
 
 const bubblePlayground = document.getElementById("bubble-playground");
 
 if (bubblePlayground) {
+  // Если на устройстве включено «уменьшить анимацию»
+  const calmMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
   const bubbleColors = [
     {
       tint: "rgba(255, 160, 205, 0.75)",
@@ -235,7 +248,9 @@ if (bubblePlayground) {
     bubble.setAttribute("aria-label", "Pop bubble");
 
     const size = Math.floor(Math.random() * 42) + 24;
-    const duration = Math.random() * 5 + 8;
+
+    // Скорость: 12–18 секунд на путь (раньше было 8–13)
+    const duration = Math.random() * 6 + 12;
 
     const width = area.width;
     const height = area.height;
@@ -285,6 +300,12 @@ if (bubblePlayground) {
     bubble.style.left = `${startX}px`;
     bubble.style.top = `${startY}px`;
 
+    // Без анимации пузырёк просто появляется в случайном месте
+    if (calmMotion) {
+      bubble.style.left = `${Math.random() * (width - size)}px`;
+      bubble.style.top = `${Math.random() * (height - size)}px`;
+    }
+
     bubble.style.setProperty("--bubble-duration", `${duration}s`);
     bubble.style.setProperty("--bubble-dx", `${endX - startX}px`);
     bubble.style.setProperty("--bubble-dy", `${endY - startY}px`);
@@ -296,17 +317,30 @@ if (bubblePlayground) {
     bubble.addEventListener("click", () => {
       if (bubble.classList.contains("popping")) return;
 
+      // Запоминаем, где пузырёк находится прямо сейчас,
+      // и переносим его стартовую точку туда
+      const bubbleBox = bubble.getBoundingClientRect();
+      const areaBox = bubblePlayground.getBoundingClientRect();
+
+      const centerX =
+        bubbleBox.left + bubbleBox.width / 2 -
+        areaBox.left - bubblePlayground.clientLeft;
+      const centerY =
+        bubbleBox.top + bubbleBox.height / 2 -
+        areaBox.top - bubblePlayground.clientTop;
+
+      bubble.style.left = `${centerX - size / 2}px`;
+      bubble.style.top = `${centerY - size / 2}px`;
+
       bubble.classList.add("popping");
+
+      // Убираем по таймеру, а не по animationend:
+      // так работает, даже если анимации выключены
+      setTimeout(() => bubble.remove(), 250);
     });
 
-    bubble.addEventListener("animationend", (event) => {
-      if (
-        event.animationName === "bubble-travel" ||
-        event.animationName === "bubble-pop"
-      ) {
-        bubble.remove();
-      }
-    });
+    // Если не лопнули, убираем, когда пузырёк долетел до конца
+    setTimeout(() => bubble.remove(), duration * 1000);
 
     bubblePlayground.appendChild(bubble);
   }
@@ -323,17 +357,5 @@ if (bubblePlayground) {
     ) {
       createBubble();
     }
-  }, 700);
+  }, 900);
 }
-
-  // A little bunch of bubbles at the beginning
-  for (let i = 0; i < 9; i++) {
-    setTimeout(createBubble, i * 250);
-  }
-
-  // New bubbles keep appearing
-  setInterval(() => {
-    if (bubblePlayground.querySelectorAll(".floating-bubble").length < 18) {
-      createBubble();
-    }
-  }, 700)
