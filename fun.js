@@ -39,6 +39,7 @@ const plushies = [
   }
 ];
 
+
 // STORAGE
 
 const STORAGE_KEY = "littleOnesHaven_plushies";
@@ -62,6 +63,7 @@ const emptyShelfMessage = document.getElementById("empty-shelf-message");
 
 let currentPlushie = null;
 
+
 // MEET A PLUSHIE
 
 function meetPlushie() {
@@ -75,38 +77,34 @@ function meetPlushie() {
   );
 
   plushieDisplay.innerHTML = `
+    <img
+      src="${currentPlushie.image}"
+      alt="${currentPlushie.name} plushie"
+    >
 
-plushieDisplay.innerHTML = `
-  <img
-    src="${currentPlushie.image}"
-    alt="${currentPlushie.name} plushie"
-  >
+    <h3>${currentPlushie.name}</h3>
 
-  <h3>${currentPlushie.name}</h3>
+    <p><strong>${currentPlushie.species}</strong></p>
 
-  <p><strong>${currentPlushie.species}</strong></p>
+    <div class="plushie-speech-bubble">
+      ${currentPlushie.quote}
+    </div>
 
-  <div class="plushie-speech-bubble">
-    ${currentPlushie.quote}
-  </div>
+    <div class="plushie-details">
+      <p>${currentPlushie.personality}</p>
 
-  <div class="plushie-details">
-    <p>${currentPlushie.personality}</p>
+      <p>${currentPlushie.description}</p>
 
-    <p>${currentPlushie.description}</p>
+      <p><strong>Birthday:</strong> ${currentPlushie.birthday}</p>
 
-    <p><strong>Birthday:</strong> ${currentPlushie.birthday}</p>
+      <p><strong>Favorite color:</strong> ${currentPlushie.favoriteColor}</p>
 
-    <p><strong>Favorite color:</strong> ${currentPlushie.favoriteColor}</p>
+      <p><strong>Favorite thing:</strong> ${currentPlushie.favoriteThing}</p>
 
-    <p><strong>Favorite thing:</strong> ${currentPlushie.favoriteThing}</p>
+      <p><strong>Loves:</strong> ${currentPlushie.loves}</p>
 
-    <p><strong>Loves:</strong> ${currentPlushie.loves}</p>
-
-    <p><strong>Doesn't like:</strong> ${currentPlushie.dislikes}</p>
-  </div>
-`;
-
+      <p><strong>Doesn't like:</strong> ${currentPlushie.dislikes}</p>
+    </div>
   `;
 
   adoptButton.hidden = false;
@@ -144,6 +142,7 @@ function adoptPlushie() {
   adoptButton.disabled = true;
 }
 
+
 // RENDER PLUSHIE SHELF
 
 function renderPlushieShelf() {
@@ -176,6 +175,7 @@ function renderPlushieShelf() {
     plushieShelf.appendChild(item);
   });
 }
+
 
 // EVENT LISTENERS
 
