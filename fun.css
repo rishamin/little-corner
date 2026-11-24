@@ -487,3 +487,27 @@
     transform: translateY(0) scale(1);
   }
 }
+/* Sound on/off button */
+
+.sound-toggle {
+  margin-top: 10px;
+  padding: 7px 14px;
+  border: 1px solid #edc5d9;
+  border-radius: 20px;
+  background: #f9edf3;
+  color: #a66d88;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sound-toggle:hover {
+  background: #f3c9dc;
+  transform: translateY(-1px);
+}
+
+.sound-toggle.is-off {
+  opacity: 0.7;
+}
