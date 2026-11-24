@@ -336,5 +336,4 @@ if (bubblePlayground) {
     if (bubblePlayground.querySelectorAll(".floating-bubble").length < 18) {
       createBubble();
     }
-  }, 700);
-}
+  }, 700)
