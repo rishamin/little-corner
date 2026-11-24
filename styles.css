@@ -239,3 +239,48 @@ a.need-card { display: block; text-decoration: none; }
   0%, 100% { transform: rotate(-2deg); }
   50% { transform: rotate(2deg); }
 }
+/* Breathing circle */
+
+.breathe {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.breathe[hidden] {
+  display: none;
+}
+
+.breathe-circle {
+  width: 110px;
+  height: 110px;
+  margin: 18px 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0, #f8dce8 45%, #d99ab5 100%);
+  box-shadow: 0 0 28px rgba(217, 154, 181, 0.45);
+  transform: scale(0.7);
+  transition: transform 1.5s ease-out;
+}
+
+.breathe-circle.in {
+  transform: scale(1.25);
+  transition: transform 4s ease-in-out;
+}
+
+.breathe-circle.hold {
+  transform: scale(1.25);
+}
+
+.breathe-circle.out {
+  transform: scale(0.7);
+  transition: transform 6s ease-in-out;
+}
+
+.breathe .breathe-text {
+  min-height: 1.6em;
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  color: #986b83;
+}
