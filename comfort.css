@@ -530,3 +530,120 @@ body::after {
 body.dimmed::after {
   opacity: 1;
 }
+/* ===== A little tenderness: hold my hand ===== */
+
+.tender-tools,
+.company-tools {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tender-tools[hidden],
+.company-tools[hidden] {
+  display: none;
+}
+
+.hand-button {
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #f8dce8 55%, #e9a9c4);
+  box-shadow: 0 6px 20px rgba(190, 120, 150, 0.25);
+  font: inherit;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: box-shadow 0.8s ease, transform 0.3s ease;
+}
+
+.hand-button:active {
+  transform: scale(0.97);
+}
+
+.hand-heart {
+  display: block;
+  font-size: 54px;
+  line-height: 1;
+  color: #d27da1;
+}
+
+.hand-button.holding .hand-heart {
+  animation: heartbeat 1.1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.2); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.13); }
+  60%      { transform: scale(1); }
+}
+
+.hand-button.warm-1 { box-shadow: 0 0 24px 6px rgba(240, 160, 190, 0.45); }
+.hand-button.warm-2 { box-shadow: 0 0 40px 14px rgba(240, 160, 190, 0.55); }
+.hand-button.warm-3 { box-shadow: 0 0 60px 24px rgba(255, 190, 160, 0.6); }
+
+.tender-tools .hand-text,
+.company-tools .nap-text {
+  min-height: 3.2em;
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #986b83;
+}
+
+
+/* ===== Some company: sleeping kitten ===== */
+
+.kitten-nap {
+  position: relative;
+  padding: 18px 26px 6px;
+  border: none;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nap-kitten {
+  display: block;
+  font-size: 72px;
+  line-height: 1;
+  transform-origin: bottom center;
+  animation: nap-breathe 4s ease-in-out infinite;
+}
+
+@keyframes nap-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50%      { transform: scale(1.04, 1.07); }
+}
+
+.nap-zzz {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #c59ac0;
+  animation: nap-zzz 3.5s ease-in-out infinite;
+}
+
+@keyframes nap-zzz {
+  0%   { opacity: 0; transform: translate(0, 10px); }
+  30%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(10px, -14px); }
+}
+
+.kitten-nap.awake .nap-kitten {
+  animation: none;
+}
+
+.kitten-nap.awake .nap-zzz {
+  display: none;
+}
