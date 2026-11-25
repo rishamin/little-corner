@@ -491,23 +491,20 @@
 
 .tuck-blanket {
   position: absolute;
-  left: -2%;
-  right: -2%;
+  left: 0;
+  right: 0;
   bottom: 0;
-  height: 70%;
-  border-radius: 48px 48px 0 0;
-  background: repeating-linear-gradient(135deg, #e8bcd0 0 14px, #f3d5e2 14px 28px);
-  box-shadow: 0 -10px 40px rgba(120, 70, 100, 0.35);
-  transform: translateY(105%);
+  height: 80%;
+  background: url("assets/sheets.png") center top / cover no-repeat;
+  transform: translateY(115%);
   transition: transform 1.4s cubic-bezier(0.22, 0.8, 0.3, 1);
 }
-
 body.tucked .tuck-overlay {
   background: rgba(40, 22, 52, 0.6);
 }
 
 body.tucked .tuck-blanket {
-  transform: translateY(8%);
+  transform: translateY(0);
 }
 
 /* Dim the lights: soft night-light veil */
