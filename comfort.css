@@ -495,7 +495,7 @@
   right: 0;
   bottom: 0;
   height: 80%;
-  background: url("assets/sheets.png") center top / cover no-repeat;
+  background: url("assets/sheets.jpg") center top / cover no-repeat;
   transform: translateY(115%);
   transition: transform 1.4s cubic-bezier(0.22, 0.8, 0.3, 1);
 }
