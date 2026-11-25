@@ -120,14 +120,14 @@ let napTimer = null;
 function napToSleep(message) {
   clearTimeout(napTimer);
   napButton.classList.remove("awake");
-  napKitten.textContent = "🐈";
+  napKitten.src = "assets/kitten-sleep.png";
   napText.textContent = message;
 }
 
 if (napButton && napKitten && napText) {
   napButton.addEventListener("click", () => {
     napButton.classList.add("awake");
-    napKitten.textContent = "🐱";
+    napKitten.src = "assets/kitten-awake.png";
     napText.textContent = napWakeMessages[napIndex];
     napIndex = (napIndex + 1) % napWakeMessages.length;
 
