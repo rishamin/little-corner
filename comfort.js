@@ -120,6 +120,25 @@ document.querySelectorAll(".need-card").forEach(card => {
         stopResting();
       }
     }
+        const tenderTools = document.getElementById("tender-tools");
+
+    if (tenderTools) {
+      tenderTools.hidden = need !== "sad";
+
+      if (need !== "sad" && typeof stopTenderness === "function") {
+        stopTenderness();
+      }
+    }
+
+    const companyTools = document.getElementById("company-tools");
+
+    if (companyTools) {
+      companyTools.hidden = need !== "lonely";
+
+      if (need !== "lonely" && typeof stopCompany === "function") {
+        stopCompany();
+      }
+    }
   });
 });
 
