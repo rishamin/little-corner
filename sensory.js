@@ -436,7 +436,7 @@ const questions = [
       {
         label: "Yes",
         value: "yes",
-        rec: 'You can simply say: "I\\'m feeling overwhelmed. I need a little quiet."',
+        rec: "You can simply say: I'm feeling overwhelmed. I need a little quiet.",
         priority: 2
       },
       {
