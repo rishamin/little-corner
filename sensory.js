@@ -30,7 +30,6 @@ const moreButton = document.getElementById("more-button");
 const moreResults = document.getElementById("more-results");
 
 const breatheButton = document.getElementById("breathe-button");
-const pauseButton = document.getElementById("pause-button");
 const restartButton = document.getElementById("restart-button");
 
 const breathingPanel = document.getElementById("breathing-panel");
@@ -50,8 +49,6 @@ let currentIndex = 0;
 
 let breathingInterval = null;
 let breathingStep = 0;
-
-let isPaused = false;
 
 
 /* ----------------------------------------
@@ -1300,25 +1297,6 @@ stopBreathingButton.addEventListener("click", stopBreathing);
 
 
 /* ----------------------------------------
-   PAUSE THE WORLD
----------------------------------------- */
-
-function setPause(value) {
-  isPaused = value;
-
-  document.body.classList.toggle("sensory-paused", isPaused);
-
-  pauseButton.textContent = isPaused
-    ? "Bring the lights back"
-    : "Pause the world";
-}
-
-pauseButton.addEventListener("click", () => {
-  setPause(!isPaused);
-});
-
-
-/* ----------------------------------------
    FINISH EARLY
 ---------------------------------------- */
 
@@ -1350,7 +1328,6 @@ modeButtons.forEach(button => {
 
 function restartCheck() {
   stopBreathing();
-  setPause(false);
 
   currentMode = null;
   answers = {};
