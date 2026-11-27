@@ -453,6 +453,66 @@ const questions = [
      SLOW CHECK: BODY NEEDS
   ====================================== */
 
+{
+  id: "B0",
+  modes: ["slow"],
+  text: "Have you had something to drink in the last 2 hours?",
+  options: [
+    {
+      label: "Yes",
+      value: "yes"
+    },
+    {
+      label: "No",
+      value: "no"
+    },
+    {
+      label: "Not sure",
+      value: "unsure"
+    }
+  ]
+},
+
+{
+  id: "B0a",
+  modes: ["slow"],
+  when: a => ["no", "unsure"].includes(a.B0),
+  text: "Do you have water or another drink with you?",
+  options: [
+    {
+      label: "Yes",
+      value: "yes",
+      rec: "Have a few small sips of water or another drink you enjoy.",
+      priority: 3
+    },
+    {
+      label: "No",
+      value: "no"
+    }
+  ]
+},
+
+{
+  id: "B0b",
+  modes: ["slow"],
+  when: a => a.B0a === "no",
+  text: "Can you get something to drink in the next few minutes?",
+  options: [
+    {
+      label: "Yes",
+      value: "yes",
+      rec: "Get yourself a drink when you can. A few sips are enough to start.",
+      priority: 3
+    },
+    {
+      label: "No",
+      value: "no",
+      rec: "If possible, ask someone to bring you a drink.",
+      priority: 3
+    }
+  ]
+},
+
   {
     id: "B1",
     modes: ["slow"],
@@ -1126,26 +1186,12 @@ function showResults() {
       moreResults.appendChild(createResultItem(item, index));
     });
 
-  } else if (recommendations.length === 0) {
+} else if (recommendations.length === 0) {
+  const message = document.createElement("p");
+  message.className = "all-clear-message";
+  message.textContent = "Everything seems okay right now. Nothing specific needs your attention. ♡";
 
-    const universal = [
-      {
-        text: "Take a few small sips of water.",
-        priority: 3
-      },
-      {
-        text: "Try reducing one source of light or noise.",
-        priority: 2
-      },
-      {
-        text: "Let your shoulders relax and breathe out slowly.",
-        priority: 4
-      },
-      {
-        text: "Find a comfortable position and give yourself a moment.",
-        priority: 3
-      }
-    ];
+  resultsList.appendChild(message);
 
     universal.slice(0, 3).forEach((item, index) => {
       resultsList.appendChild(createResultItem(item, index));
