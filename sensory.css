@@ -535,28 +535,6 @@ input:focus-visible {
   }
 }
 
-/* PAUSE THE WORLD */
-
-.sensory-page {
-  transition: filter 0.5s ease;
-}
-
-.sensory-page.sensory-paused {
-  filter: brightness(0.72);
-}
-
-.sensory-page.sensory-paused .sensory-footer {
-  filter: brightness(1.2);
-}
-.all-clear-message {
-  padding: 24px 16px;
-  color: #a66d88;
-  font-size: 16px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-
 .all-clear-image {
   display: block;
   width: 180px;
@@ -565,9 +543,8 @@ input:focus-visible {
   object-fit: contain;
   margin: 10px auto 18px;
 }
-
 .all-clear-message {
-  padding: 12px 16px;
+  padding: 24px 16px;
   color: #a66d88;
   font-size: 16px;
   line-height: 1.7;
