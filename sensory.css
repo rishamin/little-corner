@@ -499,3 +499,52 @@ input:focus-visible {
   }
 
 }
+
+/* SAFETY RESULTS */
+
+.result-item.safety-result {
+  border-color: #dfb5c2;
+  background: #fff5f6;
+}
+
+.safety-note {
+  padding: 12px 16px;
+  color: #986c7d;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* BREATHING ANIMATION */
+
+@keyframes breathe-in {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes breathe-out {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+
+/* PAUSE THE WORLD */
+
+.sensory-page {
+  transition: filter 0.5s ease;
+}
+
+.sensory-page.sensory-paused {
+  filter: brightness(0.72);
+}
+
+.sensory-page.sensory-paused .sensory-footer {
+  filter: brightness(1.2);
+}
