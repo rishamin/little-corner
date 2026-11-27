@@ -211,6 +211,20 @@ body.little-mode .pat-heart {
   font-size: 18px;
 }
 
+/* Footer alternatives text */
+
+.alternatives-little {
+  display: none;
+}
+
+body.little-mode .alternatives-normal {
+  display: none;
+}
+
+body.little-mode .alternatives-little {
+  display: inline;
+}
+
 
 
 /* ========================================
