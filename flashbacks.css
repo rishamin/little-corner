@@ -189,26 +189,54 @@ summary:focus-visible {
   outline-offset: 4px;
 }
 
+/* Little Mode: floating kitten */
+
+body.little-mode .kitten-message {
+  max-width: 215px;
+  padding: 14px 17px;
+  background: #f7eaf3;
+}
+
+body.little-mode .kitten-message p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+body.little-mode .kitten-interaction {
+  padding: 9px 13px;
+  font-size: 12px;
+}
+
+body.little-mode .pat-heart {
+  font-size: 18px;
+}
+
+
 
 /* ========================================
-   KITTEN COMPANION
+   FLOATING KITTEN COMPANION
 ======================================== */
 
 .kitten-companion {
+  position: fixed;
+  z-index: 20;
+  right: 24px;
+  bottom: 18px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto 42px;
-  text-align: center;
+  align-items: flex-end;
+  gap: 9px;
+  width: 220px;
+  pointer-events: none;
 }
 
 .kitten-image-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
-  margin-bottom: 12px;
+  width: 112px;
+  height: 112px;
+  pointer-events: auto;
 }
 
 #flashbacks-kitten {
@@ -229,38 +257,85 @@ summary:focus-visible {
   }
 }
 
+/* Speech bubble */
+
 .kitten-message {
-  max-width: 360px;
-  padding: 12px 20px;
-  background: var(--fb-lilac);
-  border-radius: 18px;
+  position: relative;
+  width: fit-content;
+  max-width: 205px;
+  padding: 12px 16px;
+  background: #f0eafa;
+  border: 1px solid #e4d9f0;
+  border-radius: 20px 20px 5px 20px;
+  box-shadow: 0 4px 14px rgba(128, 87, 108, 0.08);
+  pointer-events: auto;
+}
+
+.kitten-message::after {
+  position: absolute;
+  right: 24px;
+  bottom: -8px;
+  width: 15px;
+  height: 15px;
+  background: #f0eafa;
+  border-right: 1px solid #e4d9f0;
+  border-bottom: 1px solid #e4d9f0;
+  content: "";
+  transform: rotate(45deg);
 }
 
 .kitten-message p {
+  position: relative;
+  z-index: 1;
   margin: 0;
   color: #806c8b;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+/* Pat button */
+
+.kitten-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+  pointer-events: none;
 }
 
 .kitten-interaction {
-  margin-top: 12px;
-  padding: 7px 15px;
-  color: var(--fb-muted);
-  background: transparent;
-  border: 1px solid var(--fb-border);
-  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 17px;
+  padding: 8px 12px;
+  color: #a47791;
+  background: #fff;
+  border: 1px solid #f0dce7;
+  border-radius: 18px 18px 18px 5px;
+  box-shadow: 0 3px 12px rgba(128, 87, 108, 0.08);
   font-size: 11px;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  pointer-events: auto;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .kitten-interaction:hover {
-  color: var(--fb-accent);
-  background: var(--fb-pink);
+  background: #fff2f8;
+  transform: translateY(-2px);
 }
 
+.pat-heart {
+  color: #d79bb8;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
 
+.kitten-interaction:hover .pat-heart {
+  transform: scale(1.25);
+}
 /* ========================================
    INTRODUCTION
 ======================================== */
@@ -645,11 +720,6 @@ body.little-mode .alternatives-content {
     padding: 14px 15px;
   }
 
-  .kitten-image-wrap {
-    width: 130px;
-    height: 130px;
-  }
-
   .flashback-card summary {
     gap: 11px;
     padding: 14px;
@@ -692,6 +762,43 @@ body.little-mode .alternatives-content {
 
   .closing-message {
     padding: 26px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kitten-companion {
+    right: 10px;
+    bottom: 10px;
+    width: 165px;
+    gap: 6px;
+  }
+
+  .kitten-image-wrap {
+    width: 82px;
+    height: 82px;
+  }
+
+  .kitten-message {
+    max-width: 160px;
+    padding: 9px 12px;
+  }
+
+  .kitten-message p {
+    font-size: 10px;
+  }
+
+  .kitten-interaction {
+    margin-bottom: 10px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  body.little-mode .kitten-message {
+    max-width: 170px;
+  }
+
+  body.little-mode .kitten-message p {
+    font-size: 12px;
   }
 }
 
