@@ -555,3 +555,21 @@ input:focus-visible {
   line-height: 1.7;
   text-align: center;
 }
+
+
+.all-clear-image {
+  display: block;
+  width: 180px;
+  max-width: 65%;
+  height: auto;
+  object-fit: contain;
+  margin: 10px auto 18px;
+}
+
+.all-clear-message {
+  padding: 12px 16px;
+  color: #a66d88;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: center;
+}
