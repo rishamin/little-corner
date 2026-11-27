@@ -60,33 +60,38 @@
       </section>
 
 
-      <!-- Kitten companion -->
 
-      <section class="kitten-companion" aria-label="Your little companion">
+<!-- Floating kitten companion -->
 
-        <div class="kitten-image-wrap">
-          <img
-            src="assets/mascot.png"
-            alt="A little kitten sitting beside you"
-            id="flashbacks-kitten"
-          >
-        </div>
+<aside class="kitten-companion" aria-label="Your little companion">
 
-        <div class="kitten-message" aria-live="polite">
-          <p id="kitten-message">
-            I'm here with you. We can take our time.
-          </p>
-        </div>
+  <div class="kitten-message" aria-live="polite">
+    <p id="kitten-message">
+      I'm here with you. We can take our time.
+    </p>
+  </div>
 
-        <button
-          class="kitten-interaction"
-          id="kitten-interaction"
-          type="button"
-        >
-          Give the kitten a little pat
-        </button>
+  <div class="kitten-bottom">
+    <button
+      class="kitten-interaction"
+      id="kitten-interaction"
+      type="button"
+      aria-label="Give the kitten a little pat"
+    >
+      <span class="pat-heart" aria-hidden="true">♡</span>
+      <span class="pat-label">Give a pat</span>
+    </button>
 
-      </section>
+    <div class="kitten-image-wrap">
+      <img
+        src="assets/mascot.png"
+        alt="Your little kitten companion"
+        id="flashbacks-kitten"
+      >
+    </div>
+  </div>
+
+</aside>
 
 
       <!-- Introduction -->
@@ -473,29 +478,54 @@
           <span class="step-arrow" aria-hidden="true">⌄</span>
         </summary>
 
-        <div class="alternatives-content">
-          <p>
-            Let's try something that gives the feeling somewhere else to go,
-            without hurting your body.
-          </p>
+        
+<div class="alternatives-content">
 
-          <ul>
-            <li>
-              Draw on your skin with a red pen.
-              Use gentle strokes, without pressing.
-            </li>
+  <p class="alternatives-normal">
+    Let's try something that gives the feeling somewhere else to go,
+    without hurting your body.
+  </p>
 
-            <li>
-              Let some comfortably cool water run over your wrists.
-            </li>
-          </ul>
+  <p class="alternatives-little">
+    Sweetheart, let's find something gentle for your body.
+    We can try one of these little things.
+  </p>
 
-          <p>
-            You don't have to force yourself to do either one.
-            Choose what feels manageable, or simply move somewhere cosy
-            and give yourself a little time.
-          </p>
-        </div>
+  <ul>
+    <li>
+      <span class="alternatives-normal">
+        Draw on your skin with a red pen.
+        Use gentle strokes, without pressing.
+      </span>
+      <span class="alternatives-little">
+        You can draw little red lines or hearts with a red pen.
+        No pressing, just drawing.
+      </span>
+    </li>
+
+    <li>
+      <span class="alternatives-normal">
+        Let some comfortably cool water run over your wrists.
+      </span>
+      <span class="alternatives-little">
+        You can let some cool, comfy water run over your wrists.
+      </span>
+    </li>
+  </ul>
+
+  <p class="alternatives-normal">
+    You don't have to force yourself to do either one.
+    Choose what feels manageable, or simply move somewhere cosy
+    and give yourself a little time.
+  </p>
+
+  <p class="alternatives-little">
+    You don't have to do anything perfectly.
+    We can just take a little break together.
+  </p>
+
+</div>
+
       </details>
 
       <a class="footer-home-link" href="index.html">
