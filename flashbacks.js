@@ -20,21 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-/* Footer alternatives text */
-
-.alternatives-little {
-  display: none;
-}
-
-body.little-mode .alternatives-normal {
-  display: none;
-}
-
-body.little-mode .alternatives-little {
-  display: inline;
-}
-
-
   // ========================================
   // KITTEN COMPANION
   // ========================================
