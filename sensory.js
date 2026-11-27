@@ -1155,9 +1155,9 @@ function createResultItem(item, index) {
 }
 
 
+
 function showResults() {
   stopBreathing();
-  setPause(false);
 
   questionScreen.hidden = true;
   startScreen.hidden = true;
@@ -1186,23 +1186,20 @@ function showResults() {
       moreResults.appendChild(createResultItem(item, index));
     });
 
-} else if (recommendations.length === 0) {
-  const message = document.createElement("p");
-  message.className = "all-clear-message";
-  message.textContent = "Everything seems okay right now. Nothing specific needs your attention. ♡";
+  } else if (recommendations.length === 0) {
+    const image = document.createElement("img");
+    image.src = "assets/good-job.png";
+    image.alt = "A little celebration for taking care of yourself";
+    image.className = "all-clear-image";
 
-  resultsList.appendChild(message);
+    const message = document.createElement("p");
+    message.className = "all-clear-message";
+    message.textContent = "Everything seems okay right now. Nothing specific needs your attention. ♡";
 
-    universal.slice(0, 3).forEach((item, index) => {
-      resultsList.appendChild(createResultItem(item, index));
-    });
-
-    universal.slice(3).forEach((item, index) => {
-      moreResults.appendChild(createResultItem(item, index));
-    });
+    resultsList.appendChild(image);
+    resultsList.appendChild(message);
 
   } else {
-
     recommendations.slice(0, 4).forEach((item, index) => {
       resultsList.appendChild(createResultItem(item, index));
     });
