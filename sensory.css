@@ -548,3 +548,10 @@ input:focus-visible {
 .sensory-page.sensory-paused .sensory-footer {
   filter: brightness(1.2);
 }
+.all-clear-message {
+  padding: 24px 16px;
+  color: #a66d88;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: center;
+}
