@@ -1102,6 +1102,16 @@ function getRecommendations() {
 
     if (!selectedValue) return;
 
+    // Q2a уточняет Q2, поэтому в slow-режиме
+    // используем рекомендацию Q2a вместо рекомендации Q2.
+    if (
+      currentMode === "slow" &&
+      question.id === "Q2" &&
+      answers.Q2a
+    ) {
+      return;
+    }
+
     const option = question.options.find(
       item => item.value === selectedValue
     );
