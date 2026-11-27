@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>When Memories Feel Big ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="flashbacks.css">
+  <script src="flashbacks.js" defer></script>
+</head>
+
+<body>
+
+  <div class="flashbacks-page">
+
+    <header class="flashbacks-header">
+      <a class="back-link" href="index.html">
+        ← Back to Little One’s Haven
+      </a>
+
+      <p class="eyebrow">A little place to rest</p>
+
+      <h1>When Memories Feel Big</h1>
+
+      <p class="page-intro">
+        Sometimes old feelings come back very loudly.
+        You don't have to make sense of everything right now.
+        Let's take this one little moment at a time.
+      </p>
+    </header>
+
+
+    <main>
+
+      <!-- Little Mode -->
+
+      <section class="mode-section" aria-label="Reading mode">
+        <div class="mode-description">
+          <span class="mode-title">Little Mode</span>
+          <span class="mode-subtitle">
+            Softer words, smaller steps.
+          </span>
+        </div>
+
+        <button
+          class="mode-toggle"
+          id="little-mode-toggle"
+          type="button"
+          aria-pressed="false"
+        >
+          <span class="toggle-label">Turn on</span>
+          <span class="toggle-indicator" aria-hidden="true"></span>
+        </button>
+      </section>
+
+
+      <!-- Kitten companion -->
+
+      <section class="kitten-companion" aria-label="Your little companion">
+
+        <div class="kitten-image-wrap">
+          <img
+            src="assets/mascot.png"
+            alt="A little kitten sitting beside you"
+            id="flashbacks-kitten"
+          >
+        </div>
+
+        <div class="kitten-message" aria-live="polite">
+          <p id="kitten-message">
+            I'm here with you. We can take our time.
+          </p>
+        </div>
+
+        <button
+          class="kitten-interaction"
+          id="kitten-interaction"
+          type="button"
+        >
+          Give the kitten a little pat
+        </button>
+
+      </section>
+
+
+      <!-- Introduction -->
+
+      <section class="steps-intro">
+        <p class="section-label">A little reminder</p>
+
+        <h2>You don't have to do all of this.</h2>
+
+        <p>
+          These are gentle reminders for difficult moments.
+          You can open just one card, read a sentence, skip anything
+          that doesn't help, or simply stay here for a while.
+        </p>
+      </section>
+
+
+      <!-- The 13 steps -->
+
+      <section class="flashback-steps" aria-label="Gentle reminders">
+
+        <details class="flashback-card" data-step="1">
+          <summary>
+            <span class="step-number">01</span>
+            <span class="step-title">Something is happening. It's a flashback.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              Sometimes a memory can feel so real that it seems like
+              you're back there again. But you're here, right now.
+              This is a flashback. Something from the past is visiting you.
+              You don't have to figure it out right now.
+            </p>
+
+            <p class="little-text">
+              A big old feeling is visiting.
+              It can feel real, but it is a memory.
+              You're here, right now.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="2">
+          <summary>
+            <span class="step-number">02</span>
+            <span class="step-title">You're here, not there.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              You might feel scared. That's okay.
+              But feeling scared doesn't necessarily mean something bad
+              is happening right now. You're here, in the present.
+              The past is not happening again.
+            </p>
+
+            <p class="little-text">
+              You're here, little one.
+              That was then. This is now.
+              Let's look around at where you are.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="3">
+          <summary>
+            <span class="step-number">03</span>
+            <span class="step-title">You can say no.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              Your body belongs to you.
+              You don't have to stay where someone is hurting you.
+              You can move away, say no, ask for help or protect your space.
+              You are allowed to have boundaries.
+            </p>
+
+            <p class="little-text">
+              Your body is yours.
+              You can say no.
+              You can move away.
+              You are allowed to have boundaries.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="4">
+          <summary>
+            <span class="step-number">04</span>
+            <span class="step-title">Be gentle with your little self.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              There's a little part of you that feels very scared right now.
+              You don't have to tell it to stop crying or be brave.
+              You can tell it:
+              <em>“I'm here, sweetheart. I won't be angry with you.
+              You can be little, you can cry, and you can need cuddles.
+              I'll take care of us.”</em>
+            </p>
+
+            <p class="little-text">
+              Oh, sweetheart.
+              You don't have to be brave right now.
+              You can cry. You can need cuddles.
+              I'm here with you.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="5">
+          <summary>
+            <span class="step-number">05</span>
+            <span class="step-title">This feeling won't last forever.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              Sometimes a scary feeling makes it seem like things will
+              always be this way. But feelings change.
+              Even very big feelings become smaller eventually.
+              You don't have to make everything better right now.
+              Just stay with yourself, one little moment at a time.
+            </p>
+
+            <p class="little-text">
+              This feeling is big, but it won't stay this big forever.
+              One little moment at a time.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="6">
+          <summary>
+            <span class="step-number">06</span>
+            <span class="step-title">You're bigger now.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              You're bigger now. You have choices, people who can help,
+              and ways to protect yourself.
+              You don't have to handle everything alone.
+            </p>
+
+            <p class="little-text">
+              You're not alone with this anymore.
+              Grown-up you is here, too.
+              You have choices now.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="7">
+          <summary>
+            <span class="step-number">07</span>
+            <span class="step-title">Let's help your body rest.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              Your body might still feel tense or frightened.
+              Let's not rush it.
+              Unclench your jaw, if you can.
+              Let your shoulders rest.
+              Take a gentle breath. No need to breathe deeply.
+              Find somewhere comfortable to sit or lie down.
+              Wrap yourself in a blanket.
+              Hold your favourite plushie.
+              You don't have to do all of these.
+              One little thing is enough.
+            </p>
+
+            <p class="little-text">
+              Let's get cosy.
+              Maybe a blanket?
+              Maybe your favourite plushie?
+              You can just get comfy.
+              No need to do everything.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="8">
+          <summary>
+            <span class="step-number">08</span>
+            <span class="step-title">You don't deserve unkindness.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              Sometimes a mean little voice inside tells you that
+              everything is your fault.
+              You don't have to believe it.
+              You are not bad for being scared, upset, tired or overwhelmed.
+              You deserve kindness, even when things go wrong.
+            </p>
+
+            <p class="little-text">
+              You're not bad.
+              Not for crying. Not for being scared.
+              Not for needing help.
+              You deserve kindness.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="9">
+          <summary>
+            <span class="step-number">09</span>
+            <span class="step-title">It's okay to cry.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              You might feel sad about things that happened a long time ago.
+              You might cry, feel angry or wish someone had protected you.
+              Those feelings deserve space.
+              You don't have to hide your tears.
+              You can be gentle with yourself while they come.
+            </p>
+
+            <p class="little-text">
+              It's okay, sweetheart.
+              Tears are allowed.
+              You don't have to hide them.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="10">
+          <summary>
+            <span class="step-number">10</span>
+            <span class="step-title">You deserve safe company.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              You don't have to be alone with everything.
+              If there's someone you trust, you can ask them to stay with you.
+              You don't even need to explain everything.
+              You can simply say:
+              <em>“I'm having a difficult moment.
+              Could you sit with me for a while?”</em>
+            </p>
+
+            <p class="little-text">
+              You can ask someone kind to stay.
+              You don't have to explain.
+              Just having company is enough.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="11">
+          <summary>
+            <span class="step-number">11</span>
+            <span class="step-title">Notice what feels overwhelming.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              Sometimes certain sounds, places, people, words or situations
+              bring back old feelings.
+              It's not your fault.
+              When you can, give yourself a little more space from things
+              that hurt or overwhelm you.
+              You deserve to feel comfortable.
+            </p>
+
+            <p class="little-text">
+              Some things can feel too loud or too much.
+              That's not your fault.
+              You can take a little break.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="12">
+          <summary>
+            <span class="step-number">12</span>
+            <span class="step-title">Listen to what you need.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              Maybe you needed someone to comfort you.
+              Maybe you needed protection, patience, kindness
+              or someone who would listen.
+              Those needs were never silly or wrong.
+              You can start giving yourself some of that care now.
+              And you can let safe people help, too.
+            </p>
+
+            <p class="little-text">
+              What do you need, little one?
+              A cuddle? Some rest?
+              Someone to listen?
+              Your needs are important.
+            </p>
+          </div>
+        </details>
+
+
+        <details class="flashback-card" data-step="13">
+          <summary>
+            <span class="step-number">13</span>
+            <span class="step-title">Healing takes time, little one.</span>
+            <span class="step-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="step-content">
+            <p class="step-text">
+              You don't have to get better all at once.
+              Some days will be easier.
+              Some days might be difficult again.
+              That doesn't mean you've failed or lost all your progress.
+              You are learning to feel safer, little by little.
+              Please don't be angry with yourself for having a difficult day.
+            </p>
+
+            <p class="little-text">
+              Getting better takes time.
+              Difficult days don't mean you've failed.
+              You're learning, little by little.
+              I'm proud of you for being here.
+            </p>
+          </div>
+        </details>
+
+      </section>
+
+
+      <!-- Closing message -->
+
+      <section class="closing-message">
+        <p class="closing-heart" aria-hidden="true">♡</p>
+
+        <h2>That's enough for now.</h2>
+
+        <p>
+          You don't need to finish every card.
+          You don't need to feel better immediately.
+          Resting is enough.
+        </p>
+      </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer class="flashbacks-footer">
+
+      <details class="gentle-alternatives">
+        <summary>
+          <span>When I feel an urge to hurt myself</span>
+          <span class="step-arrow" aria-hidden="true">⌄</span>
+        </summary>
+
+        <div class="alternatives-content">
+          <p>
+            Let's try something that gives the feeling somewhere else to go,
+            without hurting your body.
+          </p>
+
+          <ul>
+            <li>
+              Draw on your skin with a red pen.
+              Use gentle strokes, without pressing.
+            </li>
+
+            <li>
+              Let some comfortably cool water run over your wrists.
+            </li>
+          </ul>
+
+          <p>
+            You don't have to force yourself to do either one.
+            Choose what feels manageable, or simply move somewhere cosy
+            and give yourself a little time.
+          </p>
+        </div>
+      </details>
+
+      <a class="footer-home-link" href="index.html">
+        ← Back to Little One’s Haven
+      </a>
+
+      <p class="footer-note">
+        Made with care, for little moments that feel big. ♡
+      </p>
+
+    </footer>
+
+  </div>
+
+</body>
+</html>
